@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu de Formas Geométricas</title>
+  <style>
+    /* Estilos opcionais para melhorar a aparência do menu */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f4f4f4;
+      padding: 0.5em;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin-right: 1em;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+    }
+
+    form {
+      text-align: center;
+      display: none;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    input, select {
+      padding: 5px;
+      margin: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Formas Geométricas</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" onclick="mostrarForm('quadrado')">Quadrado</a></li>
+      <li><a href="#" onclick="mostrarForm('triangulo')">Triângulo</a></li>
+      <li><a href="#" onclick="mostrarForm('circulo')">Círculo</a></li>
+      <li><a href="#" onclick="mostrarForm('trapezio')">Trapézio</a></li>
+    </ul>
+  </nav>
+
+  <form id="formQuadrado" class="form">
+    <h2>Quadrado</h2>
+
+    <label for="ladoQuadrado">Lado do Quadrado:</label>
+    <input type="number" id="ladoQuadrado" name="ladoQuadrado" required>
+
+    <button type="button" onclick="calcularArea('quadrado')">Calcular Área</button>
+
+    <p id="resultadoQuadrado"></p>
+  </form>
+
+  <form id="formTriangulo" class="form">
+    <h2>Triângulo</h2>
+
+    <label for="baseTriangulo">Base do Triângulo:</label>
+    <input type="number" id="baseTriangulo" name="baseTriangulo" required>
+
+    <label for="alturaTriangulo">Altura do Triângulo:</label>
+    <input type="number" id="alturaTriangulo" name="alturaTriangulo" required>
+
+    <button type="button" onclick="calcularArea('triangulo')">Calcular Área</button>
+
+    <p id="resultadoTriangulo"></p>
+  </form>
+
+  <!-- Adicione aqui as formas geométricas restantes -->
+
+  <script>
+    function mostrarForm(forma) {
+      // Esconde todos os formulários
+      const forms = document.getElementsByClassName("form");
+      for (let i = 0; i < forms.length; i++) {
+        forms[i].style.display = "none";
+      }
+
+      // Mostra o formulário da forma selecionada
+      document.getElementById("form" + forma.charAt(0).toUpperCase() + forma.slice(1)).style.display = "block";
+    }
+
+    function calcularArea(forma) {
+      let area;
+      switch (forma) {
+        case "quadrado":
+          const ladoQuadrado = parseFloat(document.getElementById("ladoQuadrado").value);
+          area = ladoQuadrado * ladoQuadrado;
+          document.getElementById("resultadoQuadrado").innerHTML = `Área: ${area.toFixed(2)}`;
+          break;
+        case "triangulo":
+          const baseTriangulo = parseFloat(document.getElementById("baseTriangulo").value);
+          const alturaTriangulo = parseFloat(document.getElementById("alturaTriangulo").value);
+          area = (baseTriangulo * alturaTriangulo) / 2;
+          document.getElementById("resultadoTriangulo").innerHTML = `Área: ${area.toFixed(2)}`;
+          break;
+        // Adicione os cálculos para as outras formas geométricas aqui
+      }
+    }
+  </script>
+
+<!-- ... (código anterior) ... -->
+
+<form id="formCirculo" class="form">
+    <h2>Círculo</h2>
+
+    <label for="raioCirculo">Raio do Círculo:</label>
+    <input type="number" id="raioCirculo" name="raioCirculo" required>
+
+    <button type="button" onclick="calcularArea('circulo')">Calcular Área</button>
+
+    <p id="resultadoCirculo"></p>
+</form>
+
+<form id="formTrapezio" class="form">
+    <h2>Trapézio</h2>
+
+    <label for="baseMaiorTrapezio">Base Maior do Trapézio:</label>
+    <input type="number" id="baseMaiorTrapezio" name="baseMaiorTrapezio" required>
+
+    <label for="baseMenorTrapezio">Base Menor do Trapézio:</label>
+    <input type="number" id="baseMenorTrapezio" name="baseMenorTrapezio" required>
+
+    <label for="alturaTrapezio">Altura do Trapézio:</label>
+    <input type="number" id="alturaTrapezio" name="alturaTrapezio" required>
+
+    <button type="button" onclick="calcularArea('trapezio')">Calcular Área</button>
+
+    <p id="resultadoTrapezio"></p>
+</form>
+
+<!-- ... (código posterior) ... -->
+
+<script>
+    // ... (código anterior) ...
+
+    function calcularArea(forma) {
+        let area;
+        switch (forma) {
+            case "quadrado":
+                const ladoQuadrado = parseFloat(document.getElementById("ladoQuadrado").value);
+                area = ladoQuadrado * ladoQuadrado;
+                document.getElementById("resultadoQuadrado").innerHTML = `Área: ${area.toFixed(2)}`;
+                break;
+            case "triangulo":
+                const baseTriangulo = parseFloat(document.getElementById("baseTriangulo").value);
+                const alturaTriangulo = parseFloat(document.getElementById("alturaTriangulo").value);
+                area = (baseTriangulo * alturaTriangulo) / 2;
+                document.getElementById("resultadoTriangulo").innerHTML = `Área: ${area.toFixed(2)}`;
+                break;
+            case "circulo":
+                const raioCirculo = parseFloat(document.getElementById("raioCirculo").value);
+                area = Math.PI * (raioCirculo * raioCirculo);
+                document.getElementById("resultadoCirculo").innerHTML = `Área: ${area.toFixed(2)}`;
+                break;
+            case "trapezio":
+                const baseMaiorTrapezio = parseFloat(document.getElementById("baseMaiorTrapezio").value);
+                const baseMenorTrapezio = parseFloat(document.getElementById("baseMenorTrapezio").value);
+                const alturaTrapezio = parseFloat(document.getElementById("alturaTrapezio").value);
+                area = ((baseMaiorTrapezio + baseMenorTrapezio) * alturaTrapezio) / 2;
+                document.getElementById("resultadoTrapezio").innerHTML = `Área: ${area.toFixed(2)}`;
+                break;
+            default:
+                area = "Selecione uma forma válida";
+        }
+    }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
