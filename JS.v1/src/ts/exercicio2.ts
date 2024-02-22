@@ -1,3 +1,18 @@
+class InfoUsuario {
+    constructor(
+        public nome: string,
+        public idade: string,
+        public cpf: string,
+        public telefone: string,
+        public endereco: Array<string>,
+        public email: string,
+        public emprestimo: Date,
+        public devolucao: Date) {
+    }
+}
+
+///
+
 class Livro {
     constructor(
         public titulo: string,
@@ -24,16 +39,17 @@ console.log(livro1.mostrarDados())
 
 ///
 
-class Usuario {
+class Usuario extends InfoUsuario {
     constructor(
-        public nome: string,
-        public idade: string,
-        public cpf: string,
-        public telefone: string,
-        public endereco: Array<string>,
-        public email: string,
-        public emprestimo: Date,
-        public devolucao: Date) {
+        nome: string,
+        idade: string,
+        cpf: string,
+        telefone: string,
+        endereco: Array<string>,
+        email: string,
+        emprestimo: Date,
+        devolucao: Date) {
+        super(nome, idade, cpf, telefone, endereco, email, emprestimo, devolucao)
     }
     mostrarDados2() {
         console.log('Dados do usuário:')
@@ -52,18 +68,24 @@ console.log(usuario1.mostrarDados2())
 
 ///
 
-class EmprestimoLivros {
+class EmprestimoLivros extends InfoUsuario {
     constructor(
-        public dataEmprestimo: Date,
-        public dataDevolucao: Date,
-        public infoUsuario: Usuario,
+        emprestimo: Date,
+        devolucao: Date,
+        nome: string,
+        idade: string,
+        cpf: string,
+        telefone: string,
+        endereco: Array<string>,
+        email: string,
         public livroEmprest: string) {
+        super(nome, idade, cpf, telefone, endereco, email, emprestimo, devolucao)
     }
     mostrarDados3() {
         console.log('Dados do empréstimo:')
-        console.log(`Data do empréstimo: ${this.dataEmprestimo.toLocaleDateString('pt-BR')}`)
-        console.log(`Data da devolução: ${this.dataDevolucao.toLocaleDateString('pt-BR')}`)
-        console.log(`Informações do usuário: ${this.infoUsuario}`)
+        console.log(`Data do empréstimo: ${this.emprestimo.toLocaleDateString('pt-BR')}`)
+        console.log(`Data da devolução: ${this.devolucao.toLocaleDateString('pt-BR')}`)
+        console.log(`Informações do usuário: ${this.}`)
         console.log(`Livro emprestado: ${this.livroEmprest}`)
     }
 }
