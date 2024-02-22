@@ -1,19 +1,12 @@
 class Livro {
-    titulo: string
-    autor: string
-    editora: string
-    categoria: string
-    creditos: string
-    dataLancamento: Date
-    quantidadesDisponiveis: string
-    constructor(titulo: string, autor: string, editora: string, categoria: string, creditos: string, dataLancamento: Date, quantidadesDisponiveis: string) {
-        this.titulo = titulo,
-            this.autor = autor,
-            this.editora = editora,
-            this.categoria = categoria,
-            this.creditos = creditos,
-            this.dataLancamento = dataLancamento,
-            this.quantidadesDisponiveis = quantidadesDisponiveis
+    constructor(
+        public titulo: string,
+        public autor: string,
+        public editora: string,
+        public categoria: string,
+        public creditos: string,
+        public dataLancamento: Date,
+        public quantidadesDisponiveis: string) {
     }
     mostrarDados() {
         console.log('Dados do livro:')
@@ -26,31 +19,21 @@ class Livro {
         console.log(`Disponíveis: ${this.quantidadesDisponiveis}`)
     }
 }
-
 const livro1 = new Livro('Cabeça Fria, Coração Quente', 'Abel Ferreira', 'Garoa Livros', 'Biografia', 'Caim e Abel', new Date('2022-11-13'), '7000 de 20000')
-
 console.log(livro1.mostrarDados())
-//
+
+///
 
 class Usuario {
-    nome: string;
-    idade: string;
-    cpf: string;
-    telefone: string;
-    endereco: Array<string>;
-    email: string;
-    emprestimo: Date;
-    devolucao: Date;
-
-    constructor(nome: string, idade: string, cpf: string, telefone: string, endereco: Array<string>, email: string, emprestimo: Date, devolucao: Date) {
-        this.nome = nome,
-            this.idade = idade,
-            this.cpf = cpf,
-            this.telefone = telefone,
-            this.endereco = endereco,
-            this.email = email,
-            this.emprestimo = emprestimo
-        this.devolucao = devolucao
+    constructor(
+        public nome: string,
+        public idade: string,
+        public cpf: string,
+        public telefone: string,
+        public endereco: Array<string>,
+        public email: string,
+        public emprestimo: Date,
+        public devolucao: Date) {
     }
     mostrarDados2() {
         console.log('Dados do usuário:')
@@ -64,25 +47,17 @@ class Usuario {
         console.log(`Data de devolução: ${this.devolucao.toLocaleDateString('pt-BR')}`)
     }
 }
-
 const usuario1 = new Usuario('George', '31', '0321654987', '0123456789', ['Rua Branco e Verde, ' + 'Bairro: Potengi, ' + 'Numero: 2121'], 'jojikusunoki@gmail.com', new Date('2023-1-20'), new Date('2023-2-13'))
-
 console.log(usuario1.mostrarDados2())
 
-//
+///
 
 class EmprestimoLivros {
-    dataEmprestimo: Date;
-    dataDevolucao: Date;
-    infoUsuario: Usuario;
-    livroEmprest: string;
-
-    constructor(dataEmprestimo: Date, dataDevolucao: Date, infoUsuario: Usuario, livroEmprest: string) {
-
-        this.dataEmprestimo = dataEmprestimo,
-            this.dataDevolucao = dataDevolucao,
-            this.infoUsuario = infoUsuario,
-            this.livroEmprest = livroEmprest
+    constructor(
+        public dataEmprestimo: Date,
+        public dataDevolucao: Date,
+        public infoUsuario: Usuario,
+        public livroEmprest: string) {
     }
     mostrarDados3() {
         console.log('Dados do empréstimo:')
@@ -93,5 +68,4 @@ class EmprestimoLivros {
     }
 }
 const emprestimo1 = new EmprestimoLivros(new Date('2023-1-12'), new Date('2023-2-15'), usuario1, 'Berserk')
-
 console.log(emprestimo1.mostrarDados3())

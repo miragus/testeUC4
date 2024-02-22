@@ -1,17 +1,11 @@
 class CadastroConta {
-    saldo: string
-    tipo: string
-    titularidade: string
-    email: string
-    cpf: string
-    historico: string
-    constructor(saldo: string, tipo: string, titularidade: string, email: string, cpf: string, historico: string) {
-        this.saldo = saldo,
-            this.tipo = tipo,
-            this.titularidade = titularidade,
-            this.email = email,
-            this.cpf = cpf,
-            this.historico = historico
+    constructor(
+       public saldo: string, 
+       public tipo: string, 
+       public titularidade: string, 
+       public email: string, 
+       public cpf: string, 
+       public historico: string) {
     }
     mostrarDados() {
         console.log('Dados do cadastro:')
@@ -24,21 +18,17 @@ class CadastroConta {
     }
 }
 const cadastroconta1 = new CadastroConta('5000', 'corrente', 'Cristian', 'cris@gmail.com', '7896541230', '3000')
-
 console.log(cadastroconta1.mostrarDados())
 
+///
+
 class Controle {
-    registro: string
-    receitas: string
-    categoria: string
-    gastos: string
-    relatorios: string
-    constructor(registro: string, receitas: string, categoria: string, gastos: string, relatorios: string) {
-        this.registro = registro,
-            this.receitas = receitas,
-            this.categoria = categoria,
-            this.gastos = gastos,
-            this.relatorios = relatorios
+    constructor(
+       public registro: string, 
+       public receitas: string, 
+       public categoria: string, 
+       public gastos: string, 
+       public relatorios: string) {
     }
     mostrarDados2() {
         console.log('Dados de controle:')
@@ -50,19 +40,16 @@ class Controle {
     }
 }
 const controle1 = new Controle('5000', '6000', 'mercado', '2000', 'compras')
-
 console.log(controle1.mostrarDados2())
 
+///
+
 class Planejamento {
-    metas: string
-    economia: string
-    dividas: string
-    progresso: string
-    constructor(metas: string, economia: string, dividas: string, progresso: string) {
-        this.metas = metas,
-            this.economia = economia,
-            this.dividas = dividas,
-            this.progresso = progresso
+    constructor(
+       public metas: string, 
+       public economia: string, 
+       public dividas: string, 
+       public progresso: string) {
     }
     mostrarDados3() {
         console.log('Dados de planejamento:')
@@ -73,5 +60,4 @@ class Planejamento {
     }
 }
 const planejamento1 = new Planejamento('10000', '500', '200', '3500')
-
 console.log(planejamento1.mostrarDados3())
