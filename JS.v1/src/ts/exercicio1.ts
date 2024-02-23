@@ -23,7 +23,7 @@ class Pessoa {
 
 ///
 
-class Funcionario extends Pessoa {
+export class Funcionario extends Pessoa {
     //metodo construtor da classe
     constructor(
         nome: string,
@@ -46,11 +46,11 @@ class Funcionario extends Pessoa {
 }
 
 //instanciando a classe funcionario e criando o objeto funcionario1
-const funcionario1 = new Funcionario('Gustavo', 'gusta@gmail.com', '1234567890', 'Médico', new Date('1990-5-13'), '123456789', '123456789', '154899532', ['rua verde'])
+//const funcionario1 = new Funcionario('Gustavo', 'gusta@gmail.com', '1234567890', 'Médico', new Date('1990-5-13'), '123456789', '123456789', '154899532', ['rua verde'])
 
-console.log(funcionario1.mostrarDados1())
+//console.log(funcionario1.mostrarDados1())
 
-///
+/*
 
 class Consulta {
     constructor(
@@ -89,4 +89,4 @@ class Paciente extends Pessoa {
     }
 }
 const paciente1 = new Paciente('Pedro', '1234567890', '0987654321', true, 'pedro@gmail.com', '987456321', new Date('2000-5-12'), ['Rua vermelha'])
-console.log(paciente1.mostrarDados3())
+console.log(paciente1.mostrarDados3())*/

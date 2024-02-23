@@ -1,4 +1,4 @@
-class InfoUsuario {
+/*class InfoUsuario {
     constructor(
         public nome: string,
         public idade: string,
@@ -90,4 +90,4 @@ class EmprestimoLivros extends InfoUsuario {
     }
 }
 const emprestimo1 = new EmprestimoLivros(new Date('2023-1-12'), new Date('2023-2-15'), usuario1, 'Berserk')
-console.log(emprestimo1.mostrarDados3())
+console.log(emprestimo1.mostrarDados3())*/
