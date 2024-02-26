@@ -1,4 +1,4 @@
-/*class InfoUsuario {
+class InfoUsuario {
     constructor(
         public nome: string,
         public idade: string,
@@ -36,6 +36,7 @@ class Livro {
 }
 const livro1 = new Livro('Cabeça Fria, Coração Quente', 'Abel Ferreira', 'Garoa Livros', 'Biografia', 'Caim e Abel', new Date('2022-11-13'), '7000 de 20000')
 console.log(livro1.mostrarDados())
+console.log('==================================================')
 
 ///
 
@@ -67,6 +68,7 @@ const usuario1 = new Usuario('George', '31', '0321654987', '0123456789', ['Rua B
 console.log(usuario1.mostrarDados2())
 
 ///
+console.log('==================================================')
 
 class EmprestimoLivros extends InfoUsuario {
     constructor(
@@ -85,9 +87,9 @@ class EmprestimoLivros extends InfoUsuario {
         console.log('Dados do empréstimo:')
         console.log(`Data do empréstimo: ${this.emprestimo.toLocaleDateString('pt-BR')}`)
         console.log(`Data da devolução: ${this.devolucao.toLocaleDateString('pt-BR')}`)
-        console.log(`Informações do usuário: ${this.}`)
+        console.log(`Informações do usuário: ${usuario1.nome}`)
         console.log(`Livro emprestado: ${this.livroEmprest}`)
     }
 }
-const emprestimo1 = new EmprestimoLivros(new Date('2023-1-12'), new Date('2023-2-15'), usuario1, 'Berserk')
-console.log(emprestimo1.mostrarDados3())*/
+const emprestimo1 = new EmprestimoLivros(new Date('2023-1-12'), new Date('2023-2-15'), 'rafa', 'Berserk', '564232', '4684261314', ['rua azul'], 'boul@gmail.com', 'berserk')
+console.log(emprestimo1.mostrarDados3())

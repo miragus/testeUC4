@@ -1,38 +1,57 @@
-class Dono{
+abstract class Dono {
     constructor(
-       public nome: string,
-       public cpf: string,
-       public email: string,
-       public rg: string,
-       public telefone: string){
-       }
-       mostrarDados(){
-        console.log('Dados do cliente:')
-        console.log(`Nome: ${this.nome}`)
-        console.log(`Telefone: ${this.telefone}`)
-        console.log(`RG: ${this.rg}`)
-        console.log(`E-mail: ${this.email}`)
-        console.log(`CPF: ${this.cpf}`)
-       }
+        private nome: string,
+        private cpf: string,
+        private email: string,
+        private rg: string,
+        private telefone: string) {
+    }
+    mostrarDados() {
+    
+    }
+    getNome(): string{
+        return this.nome
+    }
+    getCpf(): string{
+        return this.cpf
+    }
+    getRg(): string{
+        return this.rg
+    }
+    getEmail(): string{
+        return this.email
+    }
+    getTelefone(): string{
+        return this.telefone
+    }
 }
-class Conta{
+abstract class Conta {
     constructor(
-        public nome: string,
-        public cnpj: string,
-        public cpf: string,
-        public email: string,
-        public telefone: string,
-        public tipo_conta: string){
-        }
-        mostrarDados0(){
-            console.log('Dados da conta:')
-            console.log(`Nome: ${this.nome}`)
-            console.log(`Telefone: ${this.telefone}`)
-            console.log(`E-mail: ${this.email}`)
-            console.log(`CPF: ${this.cpf}`)
-            console.log(`CNPJ: ${this.cnpj}`)
-            console.log(`Tipo de conta: ${this.tipo_conta}`)
-           }
+        private nome: string,
+        private cnpj: string,
+        private cpf: string,
+        private email: string,
+        private telefone: string) {
+    }
+    mostrarDados() {
+      
+    }
+    getNome(): string{
+        return this.nome
+    }
+    getCnpj(): string{
+        return this.cnpj
+    }
+    getCpf(): string{
+        return this.cpf
+    }
+    getEmail(): string{
+        return this.email
+    }
+    getTelefone(): string{
+        return this.telefone
+    }
+
 }
 
 class CadastroConta extends Dono {
@@ -42,46 +61,47 @@ class CadastroConta extends Dono {
         email: string,
         rg: string,
         telefone: string,
-        public titularidade: string,
-        public tipo: string,
-        public saldo: string)
-         {
+        private titularidade: string,
+        private tipo: string,
+        private saldo: string) {
         super(nome, cpf, email, rg, telefone)
     }
-    mostrarDados1() {
+    mostrarDados() {
         super.mostrarDados()
         console.log('Dados do cadastro:')
         console.log(`Saldo: ${this.saldo}`)
         console.log(`Tipo: ${this.tipo}`)
         console.log(`Titularidade: ${this.titularidade}`)
-        console.log(`E-mail: ${this.email}`)
-        console.log(`CPF: ${this.cpf}`)
+        console.log(`E-mail: ${super.getEmail()}`)
+        console.log(`CPF: ${super.getCpf()}`)
+        console.log(`Nome: ${super.getNome()}`)
+        console.log(`Telefone: ${super.getTelefone()}`)
+        console.log(`RG: ${super.getRg()}`)
     }
 }
 const cadastroconta1 = new CadastroConta('Cris', '1957846321', 'cris@gmail.com', '987654', '123456789', 'Cris', 'salário', '+50')
-console.log(cadastroconta1.mostrarDados())
-
+cadastroconta1.mostrarDados()
+console.log('============================================')
 ///
 
-class Controle extends Conta{
+class Controle extends Conta {
     constructor(
-        public receitas: string,
-        public transacao: string,
-        public categoria: string,
-        public despesas: string,
-        public relatorios: string,
-        public progresso: string,
-        public historico: string,
+        private receitas: string,
+        private transacao: string,
+        private categoria: string,
+        private despesas: string,
+        private relatorios: string,
+        private progresso: string,
+        private historico: string,
         nome: string,
         cnpj: string,
         cpf: string,
         email: string,
-        telefone: string,
-        tipo_conta: string) {
-            super(nome, cnpj, cpf, email, telefone, tipo_conta)
+        telefone: string) {
+        super(nome, cnpj, cpf, email, telefone)
     }
-    mostrarDados2() {
-        super.mostrarDados0()
+    mostrarDados() {
+        super.mostrarDados()
         console.log('Dados de controle:')
         console.log(`Receitas: ${this.receitas}`)
         console.log(`Categoria: ${this.categoria}`)
@@ -90,28 +110,36 @@ class Controle extends Conta{
         console.log(`Transações: ${this.transacao}`)
         console.log(`Progresso: ${this.progresso}`)
         console.log(`Histórico: ${this.historico}`)
+        console.log(`Nome: ${super.getNome()}`)
+        console.log(`Telefone: ${super.getTelefone()}`)
+        console.log(`E-mail: ${super.getEmail()}`)
+        console.log(`CPF: ${super.getCpf()}`)
+        console.log(`CNPJ: ${super.getCnpj()}`)
+        
+        
 
     }   
 }
-const controle1 = new Controle('5000', 'compras no mercado', 'alimentação', '-2000', 'fluxo de caixa', '500', '15 compras no dia 01/02', 'Cris', '123456789', '987654321', 'cris@gmail.com', '1235489', 'poupança')
-console.log(controle1.mostrarDados2())
-
+const controle1 = new Controle('5000', 'compras no mercado', 'alimentação', '-2000', 'fluxo de caixa', '500', '15 compras no dia 01/02', 'Cris', '123456789', '987654321', 'cris@gmail.com', '1235489' )
+controle1.mostrarDados()
+console.log('============================================')
 ///
 
 class Planejamento{
     constructor(
-        public metas: string,
-        public economia: string,
-        public dividas: string,
-        public progresso: string) {
+        private metas: string,
+        private economia: string,
+        private dividas: string,
+        private progresso: string) {
             }
-    mostrarDados3() {
+    mostrarDados() {
         console.log('Dados de planejamento:')
-        console.log(`Metas: ${this.metas}`)
-        console.log(`Economia: ${this.economia}`)
-        console.log(`Dívidas: ${this.dividas}`)
-        console.log(`Progresso: ${this.progresso}`)
+        console.log(`Metas: ${ this.metas }`)
+        console.log(`Economia: ${ this.economia }`)
+        console.log(`Dívidas: ${ this.dividas }`)
+        console.log(`Progresso: ${ this.progresso }`)
     }
 }
 const planejamento1 = new Planejamento('10000', '500', '200', '3500')
-console.log(planejamento1.mostrarDados3())
+planejamento1.mostrarDados()
+
